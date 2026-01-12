@@ -20,3 +20,11 @@ Print a message:
 September 2016.".
 """
 
+phones = set([row[0] for row in calls] + [row[1] for row in calls])
+Timedict = {phone:0 for phone in phones}
+for row in calls:
+    Timedict[row[0]] += int(row[3])
+    Timedict[row[1]] += int(row[3])
+
+num, time = max(Timedict.items(), key= lambda x: x[1])
+print(f"{num} spent the longest time, {time} seconds, on the phone during September 2016.")
