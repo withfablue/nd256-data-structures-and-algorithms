@@ -68,5 +68,17 @@ for num in codes:
 print("The numbers called by people in Bangalore have codes:")
 for code in sorted(final_codes):
     print(code)
-        
+
+# Part B
+from_bangalore = 0
+to_bangalore = 0
+for rows in calls:
+    if rows[0].startswith('(080)'):
+        from_bangalore += 1
+        if rows[1].startswith('(080)'):
+            to_bangalore += 1
+
+percentage = 100 * to_bangalore / from_bangalore 
+
+print(f"{percentage:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
       

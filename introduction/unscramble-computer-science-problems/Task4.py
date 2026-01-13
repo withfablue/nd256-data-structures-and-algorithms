@@ -25,3 +25,24 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+Teles = set()
+for row in calls:
+    if row[0].startswith('140'):
+        Teles.add(row[0])
+
+for row in calls:
+    if row[1] in Teles:
+        Teles.remove(row[1])
+
+for row in texts: 
+    if row[0] in Teles:
+        Teles.remove(row[0])
+
+for row in texts:
+    if row[1] in Teles:
+        Teles.remove(row[1])
+
+List = sorted(Teles)
+print("These numbers could be telemarketers: ")
+for nums in List:
+    print(nums)
